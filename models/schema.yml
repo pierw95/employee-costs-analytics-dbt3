@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_employees
+    description: "Anagrafica dipendenti pulita e standardizzata."
+    columns:
+      - name: employee_id
+        description: "Chiave primaria del dipendente."
+        tests:
+          - unique     # TEST: L'ID deve essere unico
+          - not_null   # TEST: L'ID non deve mai essere vuoto
+
+  - name: fct_monthly_labor_costs
+    description: "Mart finale con i costi del lavoro mensili e trend MoM."
+    columns:
+      - name: calculated_labor_cost
+        description: "Costo calcolato comprensivo di straordinari."
+        tests:
+          - not_null
